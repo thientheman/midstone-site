@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midstone. AI for property agents.</title>
+<meta name="description" content="Midstone answers your WhatsApp enquiries from your own listings, books viewings once the occupier agrees, and follows up for you. You stay in control of every chat.">
+<link rel="canonical" href="https://midstone.cc/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://midstone.cc/">
+<meta property="og:title" content="Midstone. AI for property agents.">
+<meta property="og:description" content="Your WhatsApp enquiries, answered from your own listings.">
+<meta property="og:image" content="https://midstone.cc/assets/og.png">
+<meta name="theme-color" content="#2D2018">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/midstone-app-icon-apple-touch-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #EEE7D7; --espresso: #2D2018; --sandstone: #B99067; --walnut: #4D372B;
+    --limestone: #F7F4EB; --white: #FFFFFF; --stone: #6B655F; --mist: #D9D3CB;
+    --sandstone-ink: #7A5A3A;
+    --serif: 'Roboto Slab', Georgia, serif; --accent: 'Instrument Serif', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace; --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --wrap: 1080px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--espresso); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+  .eyebrow { font: 600 12px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sandstone-ink); }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; margin: 0; }
+  h1 { font-size: clamp(34px, 6vw, 58px); letter-spacing: -.01em; }
+  h2 { font-size: clamp(26px, 4vw, 36px); }
+  h3 { font-size: 20px; }
+  p { margin: 0; }
+  .muted { color: var(--stone); }
+
+  header.top { padding: 22px 0; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  header.top img { height: 34px; width: auto; display: block; }
+  header.top nav a { font-size: 15px; text-decoration: none; color: var(--stone); margin-left: 20px; }
+  header.top nav a:hover { color: var(--espresso); }
+
+  .hero { padding: 48px 0 72px; }
+  .hero h1 { max-width: 15ch; margin-top: 14px; }
+  .tagline { font: italic 400 26px/1.3 var(--accent); color: var(--sandstone-ink); margin-top: 16px; }
+  .lead { max-width: 58ch; margin-top: 22px; font-size: 19px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn { display: inline-block; padding: 14px 22px; border-radius: 10px; font: 600 16px/1 var(--sans); text-decoration: none; border: 1.5px solid var(--espresso); }
+  .btn.primary { background: var(--espresso); color: var(--cream); }
+  .btn.primary:hover { background: var(--walnut); border-color: var(--walnut); }
+  .btn.ghost { color: var(--espresso); }
+  .btn.ghost:hover { background: var(--limestone); }
+  .status { margin-top: 18px; font-size: 14px; color: var(--stone); }
+  .rule { width: 56px; height: 4px; background: var(--sandstone); border-radius: 2px; }
+
+  section { padding: 72px 0; }
+  section.paper { background: var(--limestone); }
+  section.dark { background: var(--espresso); color: var(--cream); }
+  section.dark .eyebrow { color: var(--sandstone); }
+  section.dark .muted { color: var(--mist); }
+  .head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 60ch; }
+
+  .cards { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+  .card { background: var(--white); border: 1px solid var(--mist); border-radius: 14px; padding: 24px; display: grid; gap: 10px; align-content: start; }
+  section.dark .card { background: var(--walnut); border-color: transparent; }
+  .grid2 { display: grid; gap: 28px 40px; grid-template-columns: repeat(2, 1fr); }
+  .item { display: grid; gap: 8px; }
+  .item h3 { font-size: 21px; }
+
+  ul.checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 64ch; }
+  ul.checks li { padding-left: 30px; position: relative; }
+  ul.checks li::before { content: ''; position: absolute; left: 0; top: 9px; width: 14px; height: 8px; border-left: 2.5px solid var(--sandstone); border-bottom: 2.5px solid var(--sandstone); transform: rotate(-45deg); }
+
+  .band { display: grid; gap: 22px; grid-template-columns: 1.2fr 1fr; align-items: center; }
+  .note { font-size: 18px; max-width: 56ch; }
+
+  details { border-top: 1px solid var(--mist); padding: 18px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--mist); }
+  summary { cursor: pointer; font: 700 19px/1.3 var(--serif); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; font-family: var(--sans); font-weight: 400; color: var(--sandstone-ink); }
+  details[open] summary::after { content: '\2212'; }
+  details p { margin-top: 10px; max-width: 64ch; }
+
+  footer { background: var(--espresso); color: var(--mist); padding: 40px 0; font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between; }
+  footer img { height: 28px; width: auto; display: block; }
+  footer a { color: var(--cream); }
+
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--sandstone); outline-offset: 3px; border-radius: 6px; }
+
+  @media (max-width: 820px) {
+    .cards, .grid2, .band { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+    .hero { padding: 28px 0 56px; }
+    header.top nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="/" aria-label="Midstone home"><img src="/assets/midstone-lockup-horizontal.svg" alt="Midstone" width="183" height="34"></a>
+    <nav aria-label="Page">
+      <a href="#what">What it does</a>
+      <a href="#control">You stay in control</a>
+      <a href="#circle">Midstone Circle</a>
+      <a href="#questions">Questions</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="eyebrow">Midstone · AI for property agents</p>
+      <h1 id="hero-title">Your WhatsApp enquiries, answered from your own listings.</h1>
+      <p class="tagline">Every stone in its place.</p>
+      <p class="lead">Midstone replies to new leads, books the viewing once the occupier agrees, and follows up on day 1, 3, 7 and 14. Step into any chat, any time, and it goes quiet.</p>
+      <div class="actions">
+        <a class="btn primary" href="#" data-link="demo-form">See the live demo</a>
+        <a class="btn ghost" href="#" data-link="circle-form">Apply to Midstone Circle</a>
+      </div>
+      <p class="status">Testing with five agents from November. Opening to more agents in January 2027.</p>
+    </div>
+  </section>
+
+  <section class="paper" aria-labelledby="slips-title">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">The work that slips</p><h2 id="slips-title">Three moments every agent knows.</h2></div>
+      <div class="cards">
+        <div class="card"><h3>The 11pm enquiry.</h3><p class="muted">A lead messages after dinner. By the morning, they have asked three other agents.</p></div>
+        <div class="card"><h3>The viewing that falls through at the door.</h3><p class="muted">The buyer is booked, but nobody confirmed with the tenant.</p></div>
+        <div class="card"><h3>The follow-up nobody sends.</h3><p class="muted">The lead said "let me think about it". Day 3 comes and goes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what" aria-labelledby="what-title">
+    <div class="wrap">
+      <div class="head"><div class="rule"></div><p class="eyebrow">What Midstone does</p><h2 id="what-title">The repeat work around every enquiry, done.</h2></div>
+      <div class="grid2">
+        <div class="item"><h3>Answers from your own listings.</h3><p>Replies on WhatsApp in your tone, using only the facts in your listings. If the listing does not say, it asks you instead of guessing.</p></div>
+        <div class="item"><h3>Qualifies the lead.</h3><p>Budget, timing, financing, buying or renting, asked naturally and in order.</p></div>
+        <div class="item"><h3>Books viewings end to end.</h3><p>Offers real free times from your calendar, checks access with the occupier, and confirms only when both sides agree. Reminders go out before the viewing.</p></div>
+        <div class="item"><h3>Follows up by itself.</h3><p>Day 1, 3, 7 and 14, stopping the moment the lead replies, books or says no.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="control" class="dark" aria-labelledby="control-title">
+    <div class="wrap band">
+      <div>
+        <p class="eyebrow">You stay in control</p>
+        <h2 id="control-title" style="margin-top:12px">Your chats. Your clients. Your call.</h2>
+      </div>
+      <ul class="checks">
+        <li>Take over any chat and Midstone goes quiet until you hand it back.</li>
+        <li>Price talk, "can I speak to a real person", legal and tax questions always come to you.</li>
+        <li>Every reply and booking has a short record of what Midstone checked before it acted.</li>
+        <li>One switch pauses it, for one chat or for everything.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="careful-title">
+    <div class="wrap band">
+      <div><p class="eyebrow">Built to be careful</p><h2 id="careful-title" style="margin-top:12px">The AI writes. Plain rules check.</h2></div>
+      <p class="note">Before anything is sent, plain rules check the reply against your listing and your calendar: no price, time, unit number or promise that is not in your own data. If a check fails, the reply is rewritten or handed to you.</p>
+    </div>
+  </section>
+
+  <section class="paper" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:0"><p class="eyebrow">Who it is for</p><h2 id="who-title">Agents who close a deal a month or more.</h2>
+        <p class="note">Singapore agents who want their evenings back without missing a lead.</p></div>
+    </div>
+  </section>
+
+  <section id="circle" class="dark" aria-labelledby="circle-title">
+    <div class="wrap band">
+      <div><p class="eyebrow">Midstone Circle</p><h2 id="circle-title" style="margin-top:12px">A free community for agents who close 6 or more deals a year.</h2></div>
+      <div style="display:grid;gap:22px">
+        <p class="note">One AI workflow and one CEA data insight every week, and a live session every month, on WhatsApp.</p>
+        <div><a class="btn primary" style="background:var(--cream);color:var(--espresso);border-color:var(--cream)" href="#" data-link="circle-form">Apply to Midstone Circle</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="questions" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Questions</p><h2 id="faq-title">Straight answers.</h2></div>
+      <details><summary>Is it live?</summary><p>Five agents start testing it in November. It opens to more agents in January 2027. Circle members hear first.</p></details>
+      <details><summary>Does it replace me?</summary><p>No. It handles the repeat work around enquiries and viewings. Advice, negotiation and relationships stay with you.</p></details>
+      <details><summary>Does it get me leads?</summary><p>No. It makes sure the leads you already get are answered, booked and followed up.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/midstone-lockup-horizontal-reversed.svg" alt="Midstone" width="151" height="28">
+    <span>Midstone. AI for property agents.</span>
+    <a href="https://docs.google.com/document/d/1HmJC9d0n1ufzBN2L7M7qoHGXLUEbuV7GR42dKCrzAyY/view" rel="noopener">Privacy</a>
+    <span>© 2026 Midstone</span>
+  </div>
+</footer>
+
+</body>
+</html>
