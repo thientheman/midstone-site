@@ -373,6 +373,9 @@
       <div>
         <form class="optin" id="optin" action="https://docs.google.com/forms/d/e/1FAIpQLSd4Pwz--9cX6p3akSHhoh9uhQ4m2sTOxzrgg0EDvcUOqNuSwQ/formResponse" method="post" novalidate>
           <input type="hidden" name="entry.29824469" value="site">
+          <input type="hidden" name="fvv" value="1">
+          <input type="hidden" name="pageHistory" value="0">
+          <input type="hidden" name="submissionTimestamp" value="-1">
 
           <div class="row2">
             <div class="field"><label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
@@ -447,9 +450,10 @@
         </form>
 
         <div class="thanks" id="thanks" hidden tabindex="-1" aria-live="polite">
-          <p class="eyebrow">Received</p>
-          <h3>Thank you. You're on the list.</h3>
-          <p>We'll message you on WhatsApp about what you ticked: the lunch-and-learn details and, if you asked, your Midstone Circle invitation. Reply STOP at any time.</p>
+          <p class="eyebrow">Sent</p>
+          <h3>Thank you. Your details are on their way.</h3>
+          <p>We confirm every registration on WhatsApp within a day, with the lunch-and-learn details and, if you asked, your Midstone Circle invitation. Reply STOP at any time.</p>
+          <p>No message from us by tomorrow? Please <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4Pwz--9cX6p3akSHhoh9uhQ4m2sTOxzrgg0EDvcUOqNuSwQ/viewform?usp=pp_url&amp;entry.29824469=site" rel="noopener">register on our Google Form</a> instead.</p>
         </div>
       </div>
     </div>
@@ -542,8 +546,9 @@
     btn.disabled = true; btn.textContent = 'Sending...';
     var data = new URLSearchParams();
     new FormData(form).forEach(function (v, k) { if (v !== '') data.append(k, v); });
-    // Google Forms does not let another site read its reply, so a request that was sent counts as received.
-    fetch(form.action, { method: 'POST', mode: 'no-cors', body: data })
+    // No cookies: a post that carries a signed-in visitor's Google cookies (without the form's own token) is dropped by
+    // Google without an error. Google does not let another site read its reply, so the page can only say "sent".
+    fetch(form.action, { method: 'POST', mode: 'no-cors', credentials: 'omit', referrerPolicy: 'no-referrer', body: data })
       .then(function () { form.hidden = true; thanks.hidden = false; thanks.focus(); })
       .catch(function () {
         btn.disabled = false; btn.innerHTML = 'Register <span class="arrow" aria-hidden="true">→</span>';
